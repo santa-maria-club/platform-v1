@@ -25,6 +25,9 @@
   "projects": {
     "api": {
       "tags": []
+    },
+    "shared-utils-api-interface": {
+      "tags": []
     }
   }
 }
