@@ -1,11 +1,18 @@
 import { Injectable } from '@nestjs/common';
+import { promises } from 'fs';
 
-import { CreateGraphDto } from '@slippery/shared/utils/api-interface';
+import type { CreateGraphDto } from '@slippery/shared/utils/api-interface';
 
 @Injectable()
 export class GraphService {
   create(graphDto: CreateGraphDto) {
-    console.log(graphDto);
-    return { success: true };
+    return promises.writeFile(
+      `${__dirname}/assets/graphs/${graphDto.name}.json`,
+      JSON.stringify({
+        ...graphDto,
+        nodes: [],
+        edges: [],
+      })
+    );
   }
 }
