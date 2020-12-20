@@ -59,6 +59,31 @@
           }
         }
       }
+    },
+    "shared-utils-api-interface": {
+      "root": "libs/shared/utils/api-interface",
+      "sourceRoot": "libs/shared/utils/api-interface/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/utils/api-interface/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/utils/api-interface"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/utils/api-interface/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
